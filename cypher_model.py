@@ -1,3 +1,6 @@
+import string
+import sys
+
 # Encoding Function using Vignere Cypher
 
 def vigEncode(PlainText, Key):
@@ -9,7 +12,6 @@ def vigEncode(PlainText, Key):
     for i in range(0, len(PlainText)):
         superkey.append(Key[i % len(Key)])
     
-    print(superkey)
     for j in range(0, len(PlainText)):
         x = (ord(PlainText[j]) +
              ord(superkey[j])) % 26
@@ -25,7 +27,8 @@ def vigDecode(CypherText, Key):
 
     for i in range(0, len(CypherText)):
         superkey.append(Key[i % len(Key)])
-        
+    
+
     for j in range(len(CypherText)):
         x = (ord(CypherText[j]) -
              ord(superkey[j]) + 26) % 26
@@ -44,11 +47,14 @@ def vigASCIIEncode(PlainText, Key):
 
     for i in range(0, len(PlainText)):
         superkey.append(Key[i % len(Key)])
+    
+
     for j in range(0, len(PlainText)):
         x = (ord(PlainText[j]) +
-             ord(superkey[j])) % 256
+             ord(superkey[j])) % 128
+        
         cipherText.append(chr(x))
-    
+
     return("" . join(cipherText))
 
 # Decoding Function using Vignere Cypher ASCII
@@ -62,7 +68,8 @@ def vigASCIIDecode(CypherText, Key):
         
     for j in range(len(CypherText)):
         x = (ord(CypherText[j]) -
-             ord(superkey[j]) + 256) % 256
+             ord(superkey[j]) + 128) % 128
         
         plainText.append(chr(x))
     return("" . join(plainText))
+
