@@ -35,6 +35,7 @@ def generateKeyMatrix(key):
         for j in range(0,5):
             my_matrix[i][j]=result[k]
             k+=1
+    return my_matrix
 
 def locindex(c,matrixKey): #get location of each character
     loc=list()
@@ -67,11 +68,11 @@ def encrypt(PlainText, matrixKey):  #Encryption
         loc1=list()
         loc1=locindex(PlainText[i+1],matrixKey)
         if loc[1]==loc1[1]:
-            cipherText.append("{}{}".format(matrixKey[(loc[0]+1)%5][loc[1]],matrixKey[(loc1[0]+1)%5][loc1[1]]),end=' ')
+            cipherText.append("{}{}".format(matrixKey[(loc[0]+1)%5][loc[1]],matrixKey[(loc1[0]+1)%5][loc1[1]]))
         elif loc[0]==loc1[0]:
-            cipherText.append("{}{}".format(matrixKey[loc[0]][(loc[1]+1)%5],matrixKey[loc1[0]][(loc1[1]+1)%5]),end=' ')  
+            cipherText.append("{}{}".format(matrixKey[loc[0]][(loc[1]+1)%5],matrixKey[loc1[0]][(loc1[1]+1)%5]))  
         else:
-            cipherText.append("{}{}".format(matrixKey[loc[0]][loc1[1]],matrixKey[loc1[0]][loc[1]]),end=' ')    
+            cipherText.append("{}{}".format(matrixKey[loc[0]][loc1[1]],matrixKey[loc1[0]][loc[1]]))    
         i=i+2
     return ("" . join(cipherText))        
                  
@@ -88,10 +89,15 @@ def decrypt(CipherText,matrixKey):  #decryption
         loc1=list()
         loc1=locindex(CipherText[i+1],matrixKey)
         if loc[1]==loc1[1]:
-            plainText.append("{}{}".format(matrixKey[(loc[0]-1)%5][loc[1]],matrixKey[(loc1[0]-1)%5][loc1[1]]),end=' ')
+            plainText.append("{}{}".format(matrixKey[(loc[0]-1)%5][loc[1]],matrixKey[(loc1[0]-1)%5][loc1[1]]))
         elif loc[0]==loc1[0]:
-            plainText.append("{}{}".format(matrixKey[loc[0]][(loc[1]-1)%5],matrixKey[loc1[0]][(loc1[1]-1)%5]),end=' ')  
+            plainText.append("{}{}".format(matrixKey[loc[0]][(loc[1]-1)%5],matrixKey[loc1[0]][(loc1[1]-1)%5]))  
         else:
-            plainText.append("{}{}".format(matrixKey[loc[0]][loc1[1]],matrixKey[loc1[0]][loc[1]]),end=' ')    
+            plainText.append("{}{}".format(matrixKey[loc[0]][loc1[1]],matrixKey[loc1[0]][loc[1]]))    
         i=i+2
+
+    if(plainText[-1] == 'X'):
+        plainText.pop()
+
     return ("" . join(plainText))            
+
