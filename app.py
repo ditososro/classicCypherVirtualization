@@ -22,6 +22,7 @@ def openNewWindowVigChip():
         print(INPUT)
         KUNCI = inputkunci.get("1.0", "end-1c")
         print(KUNCI)
+        Output.delete("1.0","end")
         Output.insert(END, str(vigEncode(INPUT, KUNCI)))
         
     def ShowPlainteks():
@@ -29,6 +30,7 @@ def openNewWindowVigChip():
         print(INPUT)
         KUNCI = inputkunci.get("1.0", "end-1c")
         print(KUNCI)
+        Output.delete("1.0","end")
         Output.insert(END, str(vigDecode(INPUT, KUNCI)))
 
     #Close Button
@@ -62,6 +64,7 @@ def openNewWindowExt():
             print(INPUT)
             KUNCI = inputkunci.get("1.0", "end-1c")
             print(KUNCI)
+            Output.delete("1.0","end")
             Output.insert(END, str(vigASCIIEncode(INPUT, KUNCI)))
 
     def ShowPlainteks():
@@ -69,6 +72,7 @@ def openNewWindowExt():
         print(INPUT)
         KUNCI = inputkunci.get("1.0", "end-1c")
         print(KUNCI)
+        Output.delete("1.0","end")
         Output.insert(END, str(vigASCIIDecode(INPUT, KUNCI)))        
     
     #Close Button
@@ -102,6 +106,7 @@ def openNewWindowPlayfair():
             print(INPUT)
             KUNCI = inputkunci.get("1.0", "end-1c")
             print(KUNCI)
+            Output.delete("1.0","end")
             Output.insert(END, str(encrypt(INPUT, generateKeyMatrix(KUNCI))))
 
     def ShowPlainteks():
@@ -109,6 +114,7 @@ def openNewWindowPlayfair():
         print(INPUT)
         KUNCI = inputkunci.get("1.0", "end-1c")
         print(KUNCI)
+        Output.delete("1.0","end")
         Output.insert(END, str(decrypt(INPUT, generateKeyMatrix(KUNCI))))
 
     #Close Button
