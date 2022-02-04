@@ -138,10 +138,44 @@ def openNewWindowPlayfair():
     ttk.Button(newWindow2, text="Exit", command=Close).pack(expand=True)
 
 def openNewWindowEnigma():
-    newWindow = Toplevel(root)
-    newWindow.title("Enigma Chiper")
-    newWindow.geometry("720x360")
-    newWindow.configure(bg="#E1EAF7")
+    newWindow4 = Toplevel(root)
+    newWindow4.title("Enigma Chiper")
+    newWindow4.geometry("720x360")
+    newWindow4.configure(bg="#E1EAF7")
+
+    #Close Button
+    def Close():
+        newWindow4.destroy()
+    
+    inputtxt = Text(newWindow4, height = 5, width = 25, bg = "light yellow")
+    inputtxt.insert(END, "Ketik di sini")
+    inputrotor1_1 = Text(newWindow4, height = 1, width = 25, bg = "light yellow")
+    inputrotor1_1.insert(END, "Posisi Rotor 1")
+    inputrotor1_2 = Text(newWindow4, height = 1, width = 25, bg = "light yellow")
+    inputrotor1_2.insert(END, "Posisi Alfabet Rotor 1")
+    inputrotor2_1 = Text(newWindow4, height = 1, width = 25, bg = "light yellow")
+    inputrotor2_1.insert(END, "Posisi Rotor 2")
+    inputrotor2_2 = Text(newWindow4, height = 1, width = 25, bg = "light yellow")
+    inputrotor2_2.insert(END, "Posisi Alfabet Rotor 2")
+    inputrotor3_1 = Text(newWindow4, height = 1, width = 25, bg = "light yellow")
+    inputrotor3_1.insert(END, "Posisi Rotor 3")
+    inputrotor3_2 = Text(newWindow4, height = 1, width = 25, bg = "light yellow")
+    inputrotor3_2.insert(END, "Posisi Alfabet Rotor 3")
+    Output = Text(newWindow4, height = 5, width = 25, bg = "light cyan")
+        
+    inputtxt.pack()
+    inputrotor1_1.pack()
+    inputrotor1_2.pack()
+    inputrotor2_1.pack()
+    inputrotor2_2.pack()
+    inputrotor3_1.pack()
+    inputrotor3_2.pack()
+    Output.pack()
+
+    ttk.Button(newWindow4,text='Tampilkan Hasil Enkripsi').pack(expand=True)
+    ttk.Button(newWindow4,text='Tampilkan Hasil Dekripsi').pack(expand=True)
+    ttk.Button(newWindow4, text="Exit", command=Close).pack(expand=True)
+
 
 canvas = tk.Canvas(root, height=360, width=720, bg="#C0D1EB")
 canvas.pack()
